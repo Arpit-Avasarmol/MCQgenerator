@@ -1,0 +1,137 @@
+Large language models (LLMs) have revolutionized the field of artificial intelligence (AI) development, offering developers unprecedented capabilities in a fraction of the time previously required. Despite the hype surrounding LLMs, their true potential as a developer tool is often underestimated. In this article, we will explore the power and versatility of LLMs in AI development, discussing their applications, technical details, and their impact on the job market.
+
+The Rise of LLMs
+LLMs are a type of generative AI technology that have gained significant attention in recent years. Similar to other general-purpose technologies like deep learning and electricity, LLMs have the potential to impact a wide range of applications across various industries. These models are trained on massive amounts of data, enabling them to generate human-like text and carry out complex tasks with remarkable accuracy.
+
+Prompts and Completion
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+Text Generation before LLMs
+The development of generative algorithms has been a continuous journey, with earlier iterations relying on recurrent neural networks (RNNs). While RNNs were groundbreaking at the time, they faced limitations due to the computational and memory requirements needed for effective generative tasks. A simple example of an RNN attempting to predict the next word illustrates these challenges. Even when scaled to consider more preceding words, the model still falls short in making accurate predictions. The reason lies in the complexity of language itself. Words can have multiple meanings, and their interpretation often relies on the context of the sentence or even the entire document. This inherent complexity posed a significant hurdle for algorithms to truly comprehend human language. However, in 2017, everything changed with the introduction of the transformer architecture, as described in the influential paper titled “Attention is All You Need” by Google and the University of Toronto. The transformer revolutionized generative AI by enabling efficient scaling on multi-core GPUs, parallel processing of input data, and harnessing larger training datasets. Its key breakthrough was the ability to learn and utilize attention mechanisms, allowing the model to focus on the meaning of the words being processed. This transformative approach demonstrated that attention is indeed the key ingredient needed for significant advancements in generative AI.
+
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+Transformers architecture
+The transformer architecture revolutionized natural language tasks and propelled language models to new heights of performance. One of its key strengths lies in self-attention, which enables the model to understand the relevance and context of every word in a sentence. By assigning attention weights to the relationships between words, regardless of their position, the model gains a comprehensive understanding of language. This is depicted in an attention map, where connections between words are highlighted.
+
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+The transformer architecture consists of two main components: the encoder and the decoder, both sharing similarities.
+
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+However, before feeding text into the model, words need to be tokenized and converted into numerical representations using a tokenizer. This allows the model to work with numbers rather than words. The embedding layer then maps these token IDs to high-dimensional vectors, encoding the meaning and context of each token. These vectors occupy a unique location in the embedding space, facilitating mathematical understanding of language.
+
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+Additionally, positional encoding is added to preserve word order information. The input tokens, along with positional encodings, are passed to the self-attention layer, where the model analyzes relationships between them. Multiple sets of self-attention weights, known as attention heads, are learned in parallel, capturing different aspects of language.
+
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+The output of self-attention is processed through a feed-forward network, resulting in logits proportional to the probability scores for each token.
+
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+Softmax normalization produces a probability score for every word in the vocabulary. The most likely predicted token is determined from this probability vector, with various methods available for selection.
+
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+Generating text with transformers
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+The transformer architecture revolutionized the field of natural language processing with its encoder-decoder framework. In this architecture, the encoder processes input sequences, embedding them and passing them through multi-headed attention layers. This results in a deep representation of the input’s structure and meaning. The decoder, on the other hand, utilizes the encoder’s contextual understanding, starting with a start-of-sequence token, to generate new tokens in a loop. This generation continues until an end-of-sequence token is predicted, producing the final output sequence. While the encoder-decoder model is commonly used for sequence-to-sequence tasks like translation, variations exist.
+
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+Encoder-only models are effective for tasks like sentiment analysis, BERT, while decoder-only models, such as GPT, BARD have become highly versatile. Understanding these different types of transformers and their applications is crucial for navigating the world of natural language models. Popular decoder-only models include the GPT family of models, BLOOM, Jurassic, LLaMA, and many more.
+
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+Attention is All You Need
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+“Attention is All You Need” is a research paper published in 2017 by Google researchers, which introduced the Transformer model, a novel architecture that revolutionized the field of natural language processing (NLP) and became the basis for the LLMs we now know — such as GPT, PaLM and others. The paper proposes a neural network architecture that replaces traditional recurrent neural networks (RNNs) and convolutional neural networks (CNNs) with an entirely attention-based mechanism.
+
+The Transformer model uses self-attention to compute representations of input sequences, which allows it to capture long-term dependencies and parallelize computation effectively. The authors demonstrate that their model achieves state-of-the-art performance on several machine translation tasks and outperform previous models that rely on RNNs or CNNs.
+
+The Transformer architecture consists of an encoder and a decoder, each of which is composed of several layers. Each layer consists of two sub-layers: a multi-head self-attention mechanism and a feed-forward neural network. The multi-head self-attention mechanism allows the model to attend to different parts of the input sequence, while the feed-forward network applies a point-wise fully connected layer to each position separately and identically.
+
+The Transformer model also uses residual connections and layer normalization to facilitate training and prevent overfitting. In addition, the authors introduce a positional encoding scheme that encodes the position of each token in the input sequence, enabling the model to capture the order of the sequence without the need for recurrent or convolutional operations.
+
+You can read the Transformers paper here
+
+Prompting and prompt engineering
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+In the field of natural language processing, prompt engineering has emerged as a powerful strategy to improve the performance of language models. By including examples or additional data within the prompt, a technique known as in-context learning, models can better understand and carry out specific tasks. This approach is particularly effective with larger language models, which excel at zero-shot inference, comprehending the task at hand and generating accurate responses. However, smaller models may struggle with this without explicit examples.
+
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+One-shot inference involves providing a single example within the prompt to guide the model’s understanding. This can enhance performance, especially for smaller models. Few-shot inference takes this concept further by including multiple examples, enabling the model to learn from a diverse set of instances. By leveraging these examples, models gain a clearer understanding of the desired behavior and produce more accurate completions.
+
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+While examples within the prompt can enhance performance, there is a limitation on the amount of in-context learning that can be utilized due to the context window. If a model struggles with multiple examples, fine-tuning becomes an alternative approach. Fine-tuning involves training the model with new data to improve its capabilities for specific tasks.
+
+It is essential to consider the scale of the model when determining its performance on multiple tasks. Larger models with more parameters tend to have a broader understanding of language and excel at zero-shot inference. Smaller models, on the other hand, are typically proficient in a limited number of related tasks. Finding the right model for a specific use case may require experimentation and evaluation.
+
+Once the appropriate model is identified, there are configuration settings that can be adjusted to influence the style and structure of the generated completions. These settings provide flexibility in tailoring the output to meet specific requirements.
+
+Overall, prompt engineering and understanding the characteristics of different models play a crucial role in maximizing the effectiveness of language models for various tasks. By leveraging examples, adjusting settings, and choosing the appropriate model, researchers and developers can optimize performance and achieve desired outcomes.
+
+Generative configuration
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+Language models provide configuration parameters to influence the model’s output during inference, separate from the training parameters learned during training time.
+
+“Max new tokens” sets a limit on the number of tokens the model generates, but the actual length of the completion may vary due to other stop conditions.
+Greedy decoding, the simplest method for next-word prediction, selects the word with the highest probability, but it may result in repeated words or sequences.
+Random sampling introduces variability by selecting words at random based on the probability distribution, reducing the likelihood of word repetition.
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+Top-k sampling limits the options by choosing from the k tokens with the highest probability, promoting randomness while preventing highly improbable completions.
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+Top-p sampling limits random sampling to predictions whose cumulative probabilities do not exceed a specified threshold, ensuring sensible output.
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+The temperature parameter influences the shape of the probability distribution. Higher temperature values increase randomness, while lower values concentrate probability on a smaller set of words.
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+Configuring these parameters allows developers to optimize model performance and generate text that is both coherent and creative in LLM-powered applications.
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+Generative AI project lifecycle
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+Developing and deploying a generative AI-powered application requires a systematic approach that encompasses various stages. This article focuses on outlining the life cycle of such a project and guiding developers through the key decisions and challenges they may encounter.
+
+The first and most crucial step is defining the scope of the project. It is essential to precisely identify the intended function of the Language Model (LLM) within the application. Consider whether the model needs to perform multiple tasks, including long-form text generation, or if it requires expertise in a specific area, such as named entity recognition. By being specific about the model’s purpose, developers can save time, resources, and computational costs.
+
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+Once the project scope is established, the next decision is whether to train a model from scratch or utilize an existing base model. While starting with an existing model is typically recommended, there may be cases where training a model from scratch becomes necessary. The feasibility of training a custom model can be assessed using guidelines and rules of thumb, which will be covered later in the course.
+
+After obtaining a suitable model, the next stage involves assessing its performance and performing additional training, if required. Prompt engineering, introduced earlier, can often improve the model’s performance by fine-tuning its responses to specific tasks and use cases. However, in certain scenarios, further improvement may be necessary, necessitating fine-tuning through a supervised learning process.
+
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+As models become more sophisticated, ensuring their behavior aligns with human preferences becomes increasingly important. In part 3 of the course, developers will learn about reinforcement learning with human feedback, a technique that helps shape the model’s behavior and ensure it behaves ethically and responsibly. Evaluation metrics and benchmarks will be explored in part 2 to assess the model’s performance and alignment with project objectives.
+
+The development process often involves an iterative cycle of adaptation and alignment. Developers may start with prompt engineering and evaluate the model’s outputs. They can then proceed to fine-tuning to enhance performance and revisit prompt engineering to achieve the desired results.
+
+
+Source : https://www.coursera.org/learn/generative-ai-with-llms
+Once a model meets performance requirements and aligns well with human preferences, it can be deployed and integrated into the application infrastructure. Optimization for deployment becomes crucial at this stage to maximize computational resource utilization and provide an optimal user experience.
+
+However, it’s important to acknowledge the inherent limitations of LLMs. These include their tendency to invent information when uncertain and their limited ability to perform complex reasoning and mathematical operations. The latter part of the course addresses techniques that can help overcome these limitations, providing developers with powerful tools to enhance their applications.
+
+In summary, this article introduces the life cycle of developing and deploying a generative AI application powered by LLMs. By following this framework and making informed decisions at each stage, developers can navigate the complexities of the process, address challenges, and create robust and ethically aligned applications.
